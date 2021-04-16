@@ -1,7 +1,6 @@
 # Proyecto-IngSW
 hola, acabo de llegar
-Yo tambien
-que bueno
+y si borro y agrego algo??
 Como colaboro?
 WAlker
 elizabeth come poto

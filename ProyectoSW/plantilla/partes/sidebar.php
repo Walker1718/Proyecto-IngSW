@@ -1,7 +1,11 @@
 <!-- Sidebar -->
 <div id="sidebar-container" class="bg-primary">
             <div class="logo">
-                <h4 class="text-light font-weight-bold mb-0">INGENIERÍA DE SOFTWARE</h4>
+                <img src="plantilla/images/logoaperture.jpg"
+                alt="aperture logo"
+                width="10"
+                height="10">
+                <!-- <h4 class="text-light font-weight-bold mb-0">INGENIERÍA DE SOFTWARE</h4> -->
             </div>
             <div class="menu">
                 <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-tachometer-alt"></i>

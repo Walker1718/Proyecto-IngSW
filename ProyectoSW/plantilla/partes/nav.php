@@ -2,7 +2,6 @@
  <?php include('../plantilla/partes/head.php') ?>
  <!-- fin head -->
 
- <style> <?php include '../plantilla/assets/css/style.css'; ?> </style>
 
 <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">

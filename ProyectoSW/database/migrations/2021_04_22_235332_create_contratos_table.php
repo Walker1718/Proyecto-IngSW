@@ -11,20 +11,19 @@ class CreateContratosTable extends Migration
      *
      * @return void
      */
-    public function up()
+   public function up()
     {
         Schema::create('contratos', function (Blueprint $table) {
             $table->id('id_contrato');
-            $table->id('id_user');
-            $table->id('id_perfil');
-            $table->id('id_proveedor');
-            $table->char('tipo_contrato', 15);
-            $table->char('descripcion', 15);
-            $table->char('estado', 15);
-            $table->date('fecha_entrega');
-            $table->date('fecha_aceptacion');
-            $table->date('fecha_vencimiento');
-
+            $table->bigInteger('id_user')->unsigned();
+            $table->foreign('id_user')->references('id_user')->on('usuarios');
+            $table->String('TIPO_Contrato');
+            $table->String('Descripcion');
+            $table->String('Estado');
+            $table->date('Fecha_Entrega');
+            $table->date('Fecha_Aceptacion');
+            $table->date('Fecha_Vencimiento');
+            $table->String('PDF_Contrato');
         });
     }
 

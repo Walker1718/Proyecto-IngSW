@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class anexo extends Model
 {
-    use HasFactory;
+    protected $primaryKey='id_anexo';
+
 }

@@ -30,7 +30,6 @@ class CreatePerfilsTable extends Migration
             $table->char('velocidad_hd', 30);
             $table->boolean('bajo_impacto_acustico');
             $table->char('campo', 30);
-
             $table->timestamps();
         });
     }

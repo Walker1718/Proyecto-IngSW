@@ -14,7 +14,8 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        return view('perfil.index');
+        $datos['perfil'] = perfil::paginate(5);
+        return view('perfil.index', $datos);
     }
 
     /**
@@ -37,7 +38,8 @@ class PerfilController extends Controller
     {
         $datoPerfil = request()->except('_token');
         perfil::insert($datoPerfil);
-        return response()->json($datoPerfil);
+        return redirect('perfil');
+        //return response()->json($datoPerfil);
     }
 
     /**
@@ -46,9 +48,10 @@ class PerfilController extends Controller
      * @param  \App\Models\perfil  $perfil
      * @return \Illuminate\Http\Response
      */
-    public function show(perfil $perfil)
+    public function show($id)
     {
-        return view('perfil.show');
+        $datos['perfil'] = perfil::find($id);
+        return view('perfil.show', $datos);
     }
 
     /**
@@ -80,8 +83,9 @@ class PerfilController extends Controller
      * @param  \App\Models\perfil  $perfil
      * @return \Illuminate\Http\Response
      */
-    public function destroy(perfil $perfil)
+    public function destroy($id)
     {
-        //
+        Perfil::destroy($id);
+        return redirect('perfil');
     }
 }

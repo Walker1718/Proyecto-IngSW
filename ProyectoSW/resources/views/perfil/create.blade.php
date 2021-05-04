@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-
-
+@section('content')
     <form action="{{ url('/perfil') }}" method="post" enctype="multipart/form-data">
         @csrf
         <p>
-            <label for="id_perfil"> Ingresa el id de Perfil : </label>
-            <input type="text" name="id_perfil" id='id_perfil'>
-            <br>
             <label for="procesador"> Ingresa el procesador : </label>
             <input type="text" name="procesador" id='procesador'>
             <br>
@@ -59,13 +46,9 @@
             <label for="bajo_impacto_acustico"> Ingresa el bajo_impacto_acustico 1 o 0! : </label>
             <input type="text" name="bajo_impacto_acustico" id='bajo_impacto_acustico'>
             <br>
-            
-          
+    
             <input type="submit" value="enviar" id="enviar">
         </p>
 
     </form>
-
-</body>
-
-</html>
+@endsection

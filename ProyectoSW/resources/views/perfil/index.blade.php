@@ -4,8 +4,8 @@
 
 @section('content')
 
-<div>
-
+<div class="card-header">
+    <h3 class="card-title">Perfiles de Computadores</h3>
     <table class="table table-dark table-striped">
 
         <thead>
@@ -23,18 +23,22 @@
                 <td>{{ $perfil->ram }}</td>
                 <td>{{ $perfil->dvd }}</td>
                 <td>
-                    <form action="{{ url('/perfil/'.$perfil->id_perfil) }}" method="post">
+                    <a href="{{ url('/perfil/'.$perfil->id_perfil.'/edit') }}">
+                    <button type="submit" class="btn btn-info" ">Editar</button>
+                    </a>
+                </td>
+                <td>
+                    <form action=" {{ url('/perfil/'.$perfil->id_perfil) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger" onclick="return confirm('¿Quieres Borrar?');">Borrar</button>
                     </form>
                 </td>
-            </tr>    
+            </tr>
             @endforeach
         </tbody>
 
     </table>
-
 </div>
 
 @endsection

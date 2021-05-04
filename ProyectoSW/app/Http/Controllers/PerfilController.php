@@ -48,9 +48,9 @@ class PerfilController extends Controller
      * @param  \App\Models\perfil  $perfil
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_perfil)
     {
-        $datos['perfil'] = perfil::find($id);
+        $datos['perfil'] = perfil::findOrFail($id_perfil);
         return view('perfil.show', $datos);
     }
 
@@ -60,9 +60,10 @@ class PerfilController extends Controller
      * @param  \App\Models\perfil  $perfil
      * @return \Illuminate\Http\Response
      */
-    public function edit(perfil $perfil)
+    public function edit($id)
     {
-        //
+        $dato['perfil'] = perfil::findOrFail($id);
+        return view('perfil.edit', $dato);
     }
 
     /**
@@ -72,9 +73,11 @@ class PerfilController extends Controller
      * @param  \App\Models\perfil  $perfil
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, perfil $perfil)
+    public function update(Request $request, $id_perfil)
     {
-        //
+        $dato = request()->except(['_token','_method']);
+        Perfil::where('id_perfil','=',$id_perfil)->update($dato);
+        return redirect('perfil');
     }
 
     /**
@@ -83,9 +86,9 @@ class PerfilController extends Controller
      * @param  \App\Models\perfil  $perfil
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_perfil)
     {
-        Perfil::destroy($id);
+        Perfil::destroy($id_perfil);
         return redirect('perfil');
     }
 }

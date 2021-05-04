@@ -1,3 +1,5 @@
+{{-- Index de Perfil --}}
+
 @extends('layout')
 
 @section('content')

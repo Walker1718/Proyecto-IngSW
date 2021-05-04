@@ -17,13 +17,8 @@ use App\Http\Controllers\PerfilController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('home');
 });
-
-Route::get('/perfil', function () {
-    return view('perfil');
-});
-
 
 Route::resource('contrato', ContratoController::class);
 Route::resource('perfil', PerfilController::class);

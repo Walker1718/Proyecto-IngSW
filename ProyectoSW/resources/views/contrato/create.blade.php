@@ -1,27 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+{{-- Create de Contrato --}}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@extends('layout')
 
-<body>
+@section('content')
 
+<form action="{{ url('/contrato') }}" method="post" enctype="multipart/form-data">
+    @csrf
+    <p>
+        <label for="Descripcion"> Ingresa el Descripcion : </label>
+        <input type="text" name="Descripcion" id='Descripcion'>
+        <br>
+        <input type="submit" value="enviar" id="enviar">
+    </p>
 
-    <form action="{{ url('/contrato') }}" method="post" enctype="multipart/form-data">
-        @csrf
-        <p>
-            <label for="Descripcion"> Ingresa el Descripcion : </label>
-            <input type="text" name="Descripcion" id='Descripcion'>
-            <br>
-            <input type="submit" value="enviar" id="enviar">
-        </p>
+</form> 
 
-    </form>
+@endsection
 
-</body>
-
-</html>
+ 

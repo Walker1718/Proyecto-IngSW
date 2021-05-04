@@ -18,6 +18,7 @@ class CreateAbarcaPerfilesTable extends Migration
             $table->foreign('id_contrato')->references('id_contrato')->on('contratos');
             $table->bigInteger('id_perfil')->unsigned();
             $table->foreign('id_perfil')->references('id_perfil')->on('perfils');
+            $table->integer('cantidad');
             $table->timestamps();
         });
     }

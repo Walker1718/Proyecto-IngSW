@@ -18,6 +18,7 @@ class CreateContenidoAnexosTable extends Migration
             $table->foreign('id_anexo')->references('id_anexo')->on('anexos');
             $table->bigInteger('id_clausula')->unsigned();
             $table->foreign('id_clausula')->references('id_clausula')->on('clausulas');
+            $table->String('datos');
             $table->timestamps();
         });
     }

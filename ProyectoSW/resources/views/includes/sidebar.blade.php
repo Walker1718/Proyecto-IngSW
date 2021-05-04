@@ -1,8 +1,3 @@
- <!-- head -->
- <?php include('../plantilla/partes/head.php') ?>
- <!-- fin head -->
-
- <style> <?php include '../plantilla/assets/css/style.css'; ?> </style>
 
 <!-- Sidebar -->
 <div id="sidebar-container" class="bg-primary  ">

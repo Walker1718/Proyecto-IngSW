@@ -14,7 +14,7 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        //
+        return view('perfil.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class PerfilController extends Controller
      */
     public function create()
     {
-        //
+        return view('perfil.create');
     }
 
     /**
@@ -35,7 +35,9 @@ class PerfilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datoPerfil = request()->except('_token');
+        perfil::insert($datoPerfil);
+        return response()->json($datoPerfil);
     }
 
     /**
@@ -46,7 +48,7 @@ class PerfilController extends Controller
      */
     public function show(perfil $perfil)
     {
-        //
+        return view('perfil.show');
     }
 
     /**

@@ -10,7 +10,9 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Styles -->
-    <style> <?php include '../plantilla/assets/css/style.css'; ?> </style>
+    {{-- <style> <?php include '/css/style.css'; ?> </style> --}}
+    
+    <link rel="stylesheet" href="{!! asset('style.css') !!}">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,700&display=swap" rel="stylesheet">

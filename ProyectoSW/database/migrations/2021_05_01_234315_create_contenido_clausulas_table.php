@@ -18,6 +18,7 @@ class CreateContenidoClausulasTable extends Migration
             $table->foreign('id_contrato')->references('id_contrato')->on('contratos');
             $table->bigInteger('id_clausula')->unsigned();
             $table->foreign('id_clausula')->references('id_clausula')->on('clausulas');
+            $table->String('datos');
             $table->timestamps();
         });
     }

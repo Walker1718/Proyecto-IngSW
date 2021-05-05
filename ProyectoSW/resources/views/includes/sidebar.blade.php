@@ -15,7 +15,7 @@
                 Usuarios</a>
 
                 <a href="../contrato/create" class="d-block text-light p-3 border-0"><i class="fas fa-file-signature"></i>
-                Craer Contrato</a>
+                Crear Contrato</a>
 
                 <a href="../contrato" class="d-block text-light p-3 border-0"><i class="fas fa-file-contract"></i>
                 Contratos</a>

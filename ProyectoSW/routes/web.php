@@ -20,5 +20,11 @@ Route::get('/', function () {
     return view('home');
 });
 
+
+Route::get('/foo', function () {
+    return view('perfil.index');
+});
+
 Route::resource('contrato', ContratoController::class);
+
 Route::resource('perfil', PerfilController::class);

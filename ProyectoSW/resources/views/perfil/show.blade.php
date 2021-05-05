@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+
 <div class="row">
     <div class="col-12">
         <a href="{{url('/perfil/')}}" class="btn btn-primary btn-lg ">Volver</a>
@@ -29,4 +30,5 @@
         </table>
     </div>
 </div>
+
 @stop

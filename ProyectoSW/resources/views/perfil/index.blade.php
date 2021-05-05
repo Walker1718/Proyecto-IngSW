@@ -6,7 +6,7 @@
 
 <div class="card-header">
     <h3 class="card-title">Perfiles de Computadores</h3>
-    <table class="table table-dark table-striped">
+    <table class="table table-striped">
 
         <thead>
             <tr>

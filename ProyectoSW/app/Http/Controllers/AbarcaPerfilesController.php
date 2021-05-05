@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\contiene;
+use App\Models\abarca_perfiles;
 use Illuminate\Http\Request;
 
-class ContieneController extends Controller
+class AbarcaPerfilesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ContieneController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\contiene  $contiene
+     * @param  \App\Models\abarca_perfiles  $abarca_perfiles
      * @return \Illuminate\Http\Response
      */
-    public function show(contiene $contiene)
+    public function show(abarca_perfiles $abarca_perfiles)
     {
         //
     }
@@ -52,10 +52,10 @@ class ContieneController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\contiene  $contiene
+     * @param  \App\Models\abarca_perfiles  $abarca_perfiles
      * @return \Illuminate\Http\Response
      */
-    public function edit(contiene $contiene)
+    public function edit(abarca_perfiles $abarca_perfiles)
     {
         //
     }
@@ -64,10 +64,10 @@ class ContieneController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\contiene  $contiene
+     * @param  \App\Models\abarca_perfiles  $abarca_perfiles
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, contiene $contiene)
+    public function update(Request $request, abarca_perfiles $abarca_perfiles)
     {
         //
     }
@@ -75,10 +75,10 @@ class ContieneController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\contiene  $contiene
+     * @param  \App\Models\abarca_perfiles  $abarca_perfiles
      * @return \Illuminate\Http\Response
      */
-    public function destroy(contiene $contiene)
+    public function destroy(abarca_perfiles $abarca_perfiles)
     {
         //
     }

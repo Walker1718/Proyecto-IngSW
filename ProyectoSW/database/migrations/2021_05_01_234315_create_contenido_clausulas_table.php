@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnexosTable extends Migration
+class CreateContenidoClausulasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,18 @@ class CreateAnexosTable extends Migration
      */
     public function up()
     {
-        Schema::create('anexos', function (Blueprint $table) {
-            $table->id('id_anexo');
+        Schema::create('contenido_clausulas', function (Blueprint $table) {
             $table->bigInteger('id_contrato')->unsigned();
             $table->foreign('id_contrato')->references('id_contrato')->on('contratos');
-            $table->char('n_anexo',30);
-            $table->char('titulo',30);
-            $table->String('contenido');
+            $table->bigInteger('id_clausula')->unsigned();
+            $table->foreign('id_clausula')->references('id_clausula')->on('clausulas');
+            $table->String('datos');
             $table->timestamps();
         });
     }
+
+ 
+
 
     /**
      * Reverse the migrations.
@@ -31,6 +33,6 @@ class CreateAnexosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anexos');
+        Schema::dropIfExists('contenido_clausulas');
     }
 }

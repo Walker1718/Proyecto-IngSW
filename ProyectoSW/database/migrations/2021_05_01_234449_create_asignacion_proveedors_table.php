@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnexosTable extends Migration
+class CreateAsignacionProveedorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateAnexosTable extends Migration
      */
     public function up()
     {
-        Schema::create('anexos', function (Blueprint $table) {
-            $table->id('id_anexo');
+        Schema::create('asignacion_proveedors', function (Blueprint $table) {
             $table->bigInteger('id_contrato')->unsigned();
             $table->foreign('id_contrato')->references('id_contrato')->on('contratos');
-            $table->char('n_anexo',30);
-            $table->char('titulo',30);
-            $table->String('contenido');
+            $table->bigInteger('id_proveedor')->unsigned();
+            $table->foreign('id_proveedor')->references('id_proveedor')->on('proveedors');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateAnexosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anexos');
+        Schema::dropIfExists('asignacion_proveedors');
     }
 }

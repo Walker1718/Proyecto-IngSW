@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\perfil;
+use App\Models\contenido_clausula;
 use Illuminate\Http\Request;
 
-class PerfilController extends Controller
+class ContenidoClausulaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        $datos['perfil'] = perfil::paginate(5);
-        return view('perfil.index', $datos);
+        //
     }
 
     /**
@@ -25,7 +24,7 @@ class PerfilController extends Controller
      */
     public function create()
     {
-        return view('perfil.create');
+        //
     }
 
     /**
@@ -36,59 +35,51 @@ class PerfilController extends Controller
      */
     public function store(Request $request)
     {
-        $datoPerfil = request()->except('_token');
-        perfil::insert($datoPerfil);
-        return redirect('perfil');
-        //return response()->json($datoPerfil);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\perfil  $perfil
+     * @param  \App\Models\contenido_clausula  $contenido_clausula
      * @return \Illuminate\Http\Response
      */
-    public function show($id_perfil)
+    public function show(contenido_clausula $contenido_clausula)
     {
-        $datos['perfil'] = perfil::findOrFail($id_perfil);
-        return view('perfil.show', $datos);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\perfil  $perfil
+     * @param  \App\Models\contenido_clausula  $contenido_clausula
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(contenido_clausula $contenido_clausula)
     {
-        $dato['perfil'] = perfil::findOrFail($id);
-        return view('perfil.edit', $dato);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\perfil  $perfil
+     * @param  \App\Models\contenido_clausula  $contenido_clausula
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_perfil)
+    public function update(Request $request, contenido_clausula $contenido_clausula)
     {
-        $dato = request()->except(['_token','_method']);
-        Perfil::where('id_perfil','=',$id_perfil)->update($dato);
-        return redirect('perfil');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\perfil  $perfil
+     * @param  \App\Models\contenido_clausula  $contenido_clausula
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_perfil)
+    public function destroy(contenido_clausula $contenido_clausula)
     {
-        Perfil::destroy($id_perfil);
-        return redirect('perfil');
+        //
     }
 }

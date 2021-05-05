@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\Routing\Route as RoutingRoute;
+use App\Http\Controllers\ContratoController;
+use App\Http\Controllers\PerfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('home');
 });
 
-Route::get('/perfil', function () {
-    return view('perfil');
-});
+Route::resource('contrato', ContratoController::class);
+Route::resource('perfil', PerfilController::class);

@@ -14,7 +14,7 @@ class ContratoController extends Controller
      */
     public function index()
     {
-        //
+        return view('contrato.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class ContratoController extends Controller
      */
     public function create()
     {
-        //
+        return view('contrato.create');
     }
 
     /**
@@ -35,7 +35,13 @@ class ContratoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$datoContrato = request()->all();
+        $datoContrato = request()->except('_token');
+
+        contrato::insert($datoContrato);
+
+        return response()->json($datoContrato);
+        
     }
 
     /**
@@ -46,7 +52,7 @@ class ContratoController extends Controller
      */
     public function show(contrato $contrato)
     {
-        //
+        return view('contrato.show');
     }
 
     /**
@@ -57,7 +63,7 @@ class ContratoController extends Controller
      */
     public function edit(contrato $contrato)
     {
-        //
+        return view('contrato.edit');
     }
 
     /**
@@ -69,7 +75,7 @@ class ContratoController extends Controller
      */
     public function update(Request $request, contrato $contrato)
     {
-        //
+        return view('contrato.update');
     }
 
     /**
@@ -83,3 +89,4 @@ class ContratoController extends Controller
         //
     }
 }
+

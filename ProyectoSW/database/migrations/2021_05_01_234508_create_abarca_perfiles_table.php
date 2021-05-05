@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnexosTable extends Migration
+class CreateAbarcaPerfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateAnexosTable extends Migration
      */
     public function up()
     {
-        Schema::create('anexos', function (Blueprint $table) {
-            $table->id('id_anexo');
+        Schema::create('abarca_perfiles', function (Blueprint $table) {
             $table->bigInteger('id_contrato')->unsigned();
             $table->foreign('id_contrato')->references('id_contrato')->on('contratos');
-            $table->char('n_anexo',30);
-            $table->char('titulo',30);
-            $table->String('contenido');
+            $table->bigInteger('id_perfil')->unsigned();
+            $table->foreign('id_perfil')->references('id_perfil')->on('perfils');
+            $table->integer('cantidad');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateAnexosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anexos');
+        Schema::dropIfExists('abarca_perfiles');
     }
 }

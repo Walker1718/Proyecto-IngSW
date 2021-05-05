@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class clausula extends Model
+class abarca_perfiles extends Model
 {
-    protected $primaryKey='id_clausula';
+    use HasFactory;
 }

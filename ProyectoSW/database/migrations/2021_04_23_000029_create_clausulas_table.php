@@ -14,10 +14,10 @@ class CreateClausulasTable extends Migration
     public function up()
     {
         Schema::create('clausulas', function (Blueprint $table) {
-            $table->id('id_clausulas');
+            $table->id('id_clausula');
             $table->char('n_clausula', 30);
             $table->char('titulo', 30);
-            $table->char('descripcion', 30);
+            $table->String('Contenido');
             $table->timestamps();
         });
     }

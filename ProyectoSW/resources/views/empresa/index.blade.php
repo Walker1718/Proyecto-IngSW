@@ -1,34 +1,32 @@
-{{-- Index de Perfil --}}
-
 @extends('layout')
 
 @section('content')
 
 <div class="card-header">
-    <h3 class="card-title">Perfiles de Computadores</h3>
+    <h3 class="card-title">Empresas</h3>
     <table class="table table-striped">
 
         <thead>
             <tr>
-                <th scope="col">Procesador</th>
-                <th scope="col">Ram</th>
-                <th scope="col">Dvd</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contacto</th>
             </tr>
         </thead>
 
         <tbody>
-            @foreach ($perfil as $perfil)
+            @foreach ($empresa as $empresa)
             <tr>
-                <td>{{ $perfil->procesador }}</td>
-                <td>{{ $perfil->ram }}</td>
-                <td>{{ $perfil->dvd }}</td>
+                <td>{{ $empresa->nombre }}</td>
+                <td>{{ $empresa->email }}</td>
+                <td>{{ $empresa->contacto }}</td>
                 <td>
-                    <a href="{{ url('/perfil/'.$perfil->id_perfil.'/edit') }}">
+                    <a href="{{ url('/empresa/'.$empresa->id_empresa.'/edit') }}">
                     <button type="submit" class="btn btn-info" ">Editar</button>
                     </a>
                 </td>
                 <td>
-                    <form action=" {{ url('/perfil/'.$perfil->id_perfil) }}" method="post">
+                    <form action=" {{ url('/empresa/'.$empresa->id_empresa) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger" onclick="return confirm('¿Quieres Borrar?');">Borrar</button>

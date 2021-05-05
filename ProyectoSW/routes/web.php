@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Routing\Route as RoutingRoute;
 use App\Http\Controllers\ContratoController;
+use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PerfilController;
 
 /*
@@ -22,3 +23,4 @@ Route::get('/', function () {
 
 Route::resource('contrato', ContratoController::class);
 Route::resource('perfil', PerfilController::class);
+Route::resource('empresa', EmpresaController::class);

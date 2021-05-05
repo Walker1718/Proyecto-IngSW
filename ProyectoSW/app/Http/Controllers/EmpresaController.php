@@ -15,6 +15,8 @@ class EmpresaController extends Controller
     public function index()
     {
         //
+        $datos['empresa'] = empresa::paginate(5);
+        return view('empresa.index', $datos);
     }
 
     /**
@@ -25,6 +27,7 @@ class EmpresaController extends Controller
     public function create()
     {
         //
+        return view('empresa.create');
     }
 
     /**
@@ -36,6 +39,9 @@ class EmpresaController extends Controller
     public function store(Request $request)
     {
         //
+        $datoEmpresa = request()->except('_token');
+        empresa::insert($datoEmpresa);
+        return redirect('empresa');
     }
 
     /**
@@ -55,9 +61,11 @@ class EmpresaController extends Controller
      * @param  \App\Models\empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function edit(empresa $empresa)
+    public function edit($id_empresa)
     {
         //
+        $dato['empresa'] = empresa::findOrFail($id_empresa);
+        return view('empresa.edit', $dato);
     }
 
     /**
@@ -67,9 +75,12 @@ class EmpresaController extends Controller
      * @param  \App\Models\empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, empresa $empresa)
+    public function update(Request $request, $id_empresa)
     {
         //
+        $dato = request()->except(['_token','_method']);
+        Empresa::where('id_empresa','=',$id_empresa)->update($dato);
+        return redirect('empresa');
     }
 
     /**
@@ -78,8 +89,10 @@ class EmpresaController extends Controller
      * @param  \App\Models\empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(empresa $empresa)
+    public function destroy($id_empresa)
     {
         //
+        Empresa::destroy($id_empresa);
+        return redirect('empresa');
     }
 }

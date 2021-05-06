@@ -14,7 +14,8 @@ class ClausulaController extends Controller
      */
     public function index()
     {
-        //
+        $datos['clausula'] = clausula::paginate(5);
+        return view('clausula.index', $datos);
     }
 
     /**
@@ -24,7 +25,7 @@ class ClausulaController extends Controller
      */
     public function create()
     {
-        //
+        return view('clausula.create');
     }
 
     /**
@@ -44,9 +45,10 @@ class ClausulaController extends Controller
      * @param  \App\Models\clausula  $clausula
      * @return \Illuminate\Http\Response
      */
-    public function show(clausula $clausula)
+    public function show($id_clausula)
     {
-        //
+        $datos['clausula'] = clausula::findOrFail($id_clausula);
+        return view('clausula.show', $datos);
     }
 
     /**
@@ -55,9 +57,10 @@ class ClausulaController extends Controller
      * @param  \App\Models\clausula  $clausula
      * @return \Illuminate\Http\Response
      */
-    public function edit(clausula $clausula)
+    public function edit($id)
     {
-        //
+        $dato['clausula'] = clausula::findOrFail($id);
+        return view('clausula.edit', $dato);
     }
 
     /**
@@ -67,9 +70,11 @@ class ClausulaController extends Controller
      * @param  \App\Models\clausula  $clausula
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, clausula $clausula)
+    public function update(Request $request, $id_clausula)
     {
-        //
+        $dato = request()->except(['_token','_method']);
+        clausula::where('$id_clausula','=',$id_clausula)->update($dato);
+        return redirect('clausula');
     }
 
     /**
@@ -78,8 +83,9 @@ class ClausulaController extends Controller
      * @param  \App\Models\clausula  $clausula
      * @return \Illuminate\Http\Response
      */
-    public function destroy(clausula $clausula)
+    public function destroy($id_clausula)
     {
-        //
+        clausula::destroy($id_clausula);
+        return redirect('clausula');
     }
 }

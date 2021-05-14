@@ -23,7 +23,7 @@ class CreateContratosTable extends Migration
             $table->date('Fecha_Entrega');
             $table->date('Fecha_Aceptacion');
             $table->date('Fecha_Vencimiento');
-            $table->String('PDF_Contrato');
+            $table->String('PDF_Contrato')->nullable(true);
         });
     }
 

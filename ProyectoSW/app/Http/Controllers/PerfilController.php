@@ -60,9 +60,9 @@ class PerfilController extends Controller
      * @param  \App\Models\perfil  $perfil
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_perfil)
     {
-        $dato['perfil'] = perfil::findOrFail($id);
+        $dato['perfil'] = perfil::findOrFail($id_perfil);
         return view('perfil.edit', $dato);
     }
 

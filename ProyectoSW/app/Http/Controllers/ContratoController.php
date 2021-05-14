@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\contrato;
+use App\Models\usuario;
 use Illuminate\Http\Request;
 
 class ContratoController extends Controller
@@ -14,7 +15,8 @@ class ContratoController extends Controller
      */
     public function index()
     {
-        return view('contrato.index');
+        $datos['contrato'] = contrato::paginate(5);
+        return view('contrato.index', $datos);
     }
 
     /**
@@ -24,7 +26,8 @@ class ContratoController extends Controller
      */
     public function create()
     {
-        return view('contrato.create');
+        $datosUsuarios = usuario::all();
+        return view('contrato.create', compact('datosUsuarios'));
     }
 
     /**
@@ -35,12 +38,9 @@ class ContratoController extends Controller
      */
     public function store(Request $request)
     {
-        //$datoContrato = request()->all();
         $datoContrato = request()->except('_token');
-
         contrato::insert($datoContrato);
-
-        return response()->json($datoContrato);
+        return redirect('contrato');
         
     }
 
@@ -52,7 +52,8 @@ class ContratoController extends Controller
      */
     public function show(contrato $contrato)
     {
-        return view('contrato.show');
+        $datos['contrato'] = contrato::findOrFail($id_contrato);
+        return view('contrato.show', $datos);
     }
 
     /**
@@ -61,9 +62,10 @@ class ContratoController extends Controller
      * @param  \App\Models\contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function edit(contrato $contrato)
+    public function edit($id_contrato)
     {
-        return view('contrato.edit');
+        $dato['contrato'] = contrato::findOrFail($id_contrato);
+        return view('contrato.edit', $dato);
     }
 
     /**
@@ -73,9 +75,11 @@ class ContratoController extends Controller
      * @param  \App\Models\contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, contrato $contrato)
+    public function update(Request $request, $id_contrato)
     {
-        return view('contrato.update');
+        $dato = request()->except(['_token','_method']);
+        Contrato::where('id_contrato','=',$id_contrato)->update($dato);
+        return redirect('contrato');
     }
 
     /**
@@ -84,9 +88,10 @@ class ContratoController extends Controller
      * @param  \App\Models\contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function destroy(contrato $contrato)
+    public function destroy($id_contrato)
     {
-        //
+        Contrato::destroy($id_contrato);
+        return redirect('contrato');
     }
 }
 

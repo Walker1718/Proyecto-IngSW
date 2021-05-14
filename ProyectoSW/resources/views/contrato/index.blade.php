@@ -1,19 +1,50 @@
 {{-- Index de contrato --}}
 
-@extends('layout')  
+@extends('layout')
 
 @section('content')
-    
-    <div class="card-header">
 
-        Index de contrato
+<div class="card-header">
+    <h3 class="card-title">Perfiles de Computadores</h3>
+    <table class="table table-striped">
 
-        <h3 class="card-title">Contratos</h3>
-        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">TIPO_Contrato</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Fecha_Entrega</th>
+                <th scope="col">Fecha_Aceptacion</th>
+                <th scope="col">Fecha_Vencimiento</th>
+            </tr>
+        </thead>
 
-            
+        <tbody>
+            @foreach ($contrato as $contrato)
+            <tr>
+                <td>{{ $contrato->TIPO_Contrato }}</td>
+                <td>{{ $contrato->Descripcion }}</td>
+                <td>{{ $contrato->Estado }}</td>
+                <td>{{ $contrato->Fecha_Entrega }}</td>
+                <td>{{ $contrato->Fecha_Aceptacion }}</td>
+                <td>{{ $contrato->Fecha_Vencimiento }}</td>
+                <td>
+                    <a href="{{ url('/contrato/'.$contrato->id_contrato.'/edit') }}">
+                    <button type="submit" class="btn btn-info" ">Editar</button>
+                    </a>
+                </td>
+                <td>
+                    <form action=" {{ url('/contrato/'.$contrato->id_contrato) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('¿Quieres Borrar?');">Borrar</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
 
-        </table>
-    </div>
+    </table>
+</div>
 
 @endsection

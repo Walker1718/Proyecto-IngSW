@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\clausula;
 use Illuminate\Http\Request;
+use DB;
 
 class ClausulaController extends Controller
 {

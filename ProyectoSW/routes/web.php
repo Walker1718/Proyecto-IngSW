@@ -5,6 +5,7 @@ use Symfony\Component\Routing\Route as RoutingRoute;
 use App\Http\Controllers\ContratoController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\ClausulaController;
+use App\Http\Controllers\EmpresaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,6 @@ Route::get('/foo', function () {
 });
 
 Route::resource('contrato', ContratoController::class);
-
 Route::resource('perfil', PerfilController::class);
 Route::resource('clausula', ClausulaController::class);
+Route::resource('empresa', EmpresaController::class);

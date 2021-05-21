@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\clausula;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\View\View;
 
 class ClausulaController extends Controller
 {
@@ -26,7 +27,7 @@ class ClausulaController extends Controller
      */
     public function create()
     {
-        return view('clausula.create');
+        return view(view: 'clausula.create');
     }
 
     /**

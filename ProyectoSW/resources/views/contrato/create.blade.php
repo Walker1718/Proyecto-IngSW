@@ -51,10 +51,9 @@
                         <input type="date" name="Fecha_Vencimiento" id='Fecha_Vencimiento' class="form-control">
                         <br>
 
-                        <div class="mb-3">
-                            <label for="PDF_Contrato" class="form-label"> Subir PDF del contrato</label>
-                            <input class="form-control" type="file" id="PDF_Contrato">
-                        </div>
+                        <label for="PDF_Contrato" class="form-label"> Subir PDF del contrato</label>
+                        <input type="file" name="PDF_Contrato" id="PDF_Contrato" class="form-control">
+                        <br>
 
                         <input type="submit" value="Enviar" id="enviar" class="btn btn-success float-right">
 

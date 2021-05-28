@@ -39,6 +39,12 @@ class ContratoController extends Controller
     public function store(Request $request)
     {
         $datoContrato = request()->except('_token');
+
+        if($request->hasFile('PDF_Contrato')){
+            $datoContrato['PDF_Contrato']=$request->file('PDF_Contrato')->store('uploads' , 'public');
+
+        }
+
         contrato::insert($datoContrato);
         return redirect('contrato');
         
@@ -65,7 +71,9 @@ class ContratoController extends Controller
     public function edit($id_contrato)
     {
         $dato['contrato'] = contrato::findOrFail($id_contrato);
-        return view('contrato.edit', $dato);
+
+        $datosUsuarios = usuario::all();
+        return view('contrato.edit', $dato, compact('datosUsuarios') );
     }
 
     /**

@@ -62,7 +62,21 @@ a:hover {
     border-right: 1px solid var(--grey);
 }
 
-  
+
+/* #texto Se utiliza para alinear el texto del logo*/
+#texto{                        
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    bottom: -10px;
+    left: 5px;
+}
+
+/* Se utiliza para eliminar el subrayado de los enlaces*/
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+
 @media (max-width: 768px) {
     #sidebar-container {
       display: none;

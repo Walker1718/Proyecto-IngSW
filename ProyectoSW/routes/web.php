@@ -22,9 +22,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-
-Route::get('/foo', function () {
-    return view('perfil.index');
+Route::get('/creacion', function () {
+    return view('creacion');
 });
 
 Route::resource('contrato', ContratoController::class);

@@ -31,3 +31,4 @@ Route::resource('contrato', ContratoController::class);
 Route::resource('perfil', PerfilController::class);
 Route::resource('clausula', ClausulaController::class);
 Route::resource('empresa', EmpresaController::class);
+

@@ -30,8 +30,8 @@
             </div>
             <br>
 
-            <label for="Estado"> Ingresa el Estado del Contrato : </label>
-            <input type="text" name="Estado" id='Estado' class="form-control">
+            <label for="Estado"> Estado del contrato: </label>
+            <input type="text" name="Estado" id='Estado' class="form-control" disabled="Borrador" value="Borrador">
             <br>
 
             <label for="Fecha_Entrega"> Selecciona la Fecha_Entrega: </label>

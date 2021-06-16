@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\contrato;
 use App\Models\usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class ContratoController extends Controller
 {
@@ -39,6 +40,7 @@ class ContratoController extends Controller
     public function store(Request $request)
     {
         $datoContrato = request()->except('_token');
+        Arr::set($datoContrato, 'Estado', 'Borrador');
         contrato::insert($datoContrato);
         return redirect('contrato');
         

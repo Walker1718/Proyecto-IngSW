@@ -27,7 +27,8 @@ class ClausulaController extends Controller
      */
     public function create()
     {
-        return view(view: 'clausula.create');
+        $datos = clausula::all();
+        return view('clausula.create', compact('datos'));
     }
 
     /**
@@ -90,4 +91,13 @@ class ClausulaController extends Controller
         clausula::destroy($id_clausula);
         return redirect('clausula');
     }
+
+    public function Encontrartextoareaclausula(Request $request){
+	
+		//it will get price if its id match with product id
+		$p=clausula::select('contenido')->where('id_clausula',$request->id_clausula)->first();
+		
+    	return response()->json($p);
+	}
+
 }

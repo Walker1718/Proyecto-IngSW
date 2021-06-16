@@ -1,5 +1,5 @@
 
-    <div>
+    <div wire::ignore>
         <form action="{{ route('clausula.store') }}" method="POST">
             @csrf
     
@@ -19,16 +19,17 @@
                         </thead>
                         <tbody>
                         @foreach ($Ordendedatos as $index => $Ordendedatos)
-                            <tr>
+                        {{$index}}
+                            <tr wire:key="columna[{{$index}}]">
                                 <td>
-                                    <select name="Ordendedatos[{{$index}}][id_clausula]"
-                                            wire:model="Ordendedatos.{{$index}}.Contenido"
+                                    <select wire:key="Select[{{$index}}]"
+                                            wire:model="Ordendedatos.{{$index}}"
                                             class="form-select"
                                             aria-label="Default select example">
                                         <option value="">-- Tipo de clausula --</option>
 
                                         @foreach($datos as $clausula)
-                                        <option  value="{{ $clausula->Contenido }}">
+                                        <option  value="{{ $clausula ->id_clausula}}">
                                             {{ ucfirst($clausula->titulo) }}</option>
                                         @endforeach
                                     </select>
@@ -37,15 +38,10 @@
 
                                     <textarea   class="form-control" 
                                                 id="Textoindividualdeclausulas" rows="5" 
-                                                name="Ordendedatos[{{$index}}][Contenido]"
-                                                wire:model="Ordendedatos.{{$index}}.Contenido"
-                                               ></textarea>
-                                               
+                                                wire:key="Textarea[{{$index}}]"
+                                            wire:model="Ordendedatos.{{$index}}.\id_clausula\">hhi</textarea>
 
-                                    {{-- <input type="number"
-                                           name="Ordendedatos[{{$index}}][quantity]"
-                                           class="form-control"
-                                           wire:model="Ordendedatos.{{$index}}.quantity" /> --}}
+                                               
                                 </td>
                                 <td>
                                     <a href="#" wire:click.prevent="removeProduct({{$index}})">Eliminar</a>
@@ -70,3 +66,49 @@
         </form>
     </div>
 
+
+
+    {{--                                                                                     --}}
+
+    {{-- <div>
+        <form  method="POST" enctype="multipart/form-data" class="form-horizontal" action="" >
+            {{ csrf_field() }}
+            <div class="card-body">
+                
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <label for="status">Select Class</label>
+                        <select class="form-control" wire:model="selectedClass">
+                            <option value="">Select a Class</option>
+                            @foreach($datos as $clausula)
+                            <option  value="{{ $clausula->id_clausula }}">
+                                {{ ucfirst($clausula->titulo) }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                {{ $sections }}
+                @if (!is_null($sections))
+
+
+
+                
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <label for="status">Select a Section</label>
+                        <select class="form-control" wire:model="selectedSection">
+                            <option value="">Select a Section</option>
+                            @foreach ($sections as $item)
+                            <option value="{{ $item->Contenido }}">{{ $item->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                @endif
+    
+                {{ $selectedSection }}
+
+            </div>
+        </form>
+    </div> --}}

@@ -28,18 +28,25 @@
                 <td>{{ $contrato->Fecha_Entrega }}</td>
                 <td>{{ $contrato->Fecha_Aceptacion }}</td>
                 <td>{{ $contrato->Fecha_Vencimiento }}</td>
+
                 <td>
+                @if ($contrato->Estado != 'Aceptado' && $contrato->Estado != 'Completado')
                     <a href="{{ url('/contrato/'.$contrato->id_contrato.'/edit') }}">
-                    <button type="submit" class="btn btn-info" ">Editar</button>
+                        <button type="submit" class="btn btn-info" ">Editar</button>
                     </a>
+                @endif
                 </td>
+
                 <td>
+                @if ($contrato->Estado == 'Borrador' || $contrato->Estado == 'Recibido' ||$contrato->Estado == 'Negado')
                     <form action=" {{ url('/contrato/'.$contrato->id_contrato) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger" onclick="return confirm('¿Quieres Borrar?');">Borrar</button>
                     </form>
+                @endif
                 </td>
+
             </tr>
             @endforeach
         </tbody>

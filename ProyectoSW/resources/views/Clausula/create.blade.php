@@ -3,56 +3,53 @@
 @extends('layout')  
 
 @section('content')
-    
+<form action="{{ route('clausula.store') }}" method="POST">
+    @csrf
 
+        <div class="card">
+            <div class="card-header">
+                Contrato
+            </div>
 
+            <div class="card-body">
+                <table class="table" id="products_table">
+                    <thead>
+                    <tr>
+                        <th class = "col-md-2">Tipo</th>
+                        <th >Clausula</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <select name = "Select_Clausulas"
+                                        class="form-select Select_Clausulas"
+                                        aria-label="Default select example">
+                                    <option value="">-- Tipo de clausula --</option>
 
-{{-- <div class="card">
-    <div class="card-header">
-        Products
-    </div>
+                                    @foreach($datos as $clausula)
+                                    <option  value="{{ $clausula ->id_clausula}}">
+                                        {{ ucfirst($clausula->titulo) }}</option>
+                                    @endforeach
+                                </select>
+                            </td>
+                            <td>
 
-    <div class="card-body">
-        <table class="table" id="products_table">
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr id="clausula0">
-                    <td>
-                        <select name="products[]" class="form-control">
-                            <option value="">-- choose clausula --</option>
-                            @foreach($clausula as $clausula)
-                            <option  value="{{ $clausula->n_clausula }}">
-                                {{ ucfirst($clausula->n_clausula) }}</option>
-                            @endforeach
-                        </select>
-                    </td>
-                    <td>
-                        <input type="number" name="quantities[]" class="form-control" value="1" />
-                    </td>
-                </tr>
-                <tr id="clausula1"></tr>
-            </tbody>
-        </table>
-
-        <div class="row">
-            <div class="col-md-12">
-                <button id="add_row" class="btn btn-default pull-left">+ Add Row</button>
-                <button id='delete_row' class="pull-right btn btn-danger">- Delete Row</button>
+                                <textarea name="text_area_clausula" class="form-control text_area_clausula" id="Textoindividualdeclausulas" rows="5"></textarea>
+                                           
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
-</div>
-<div>
-    <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
-</div> --}}
+    </form>
+
+        
 
 
-    @livewire('consultas')
+    {{-- @livewire('consultas') --}}
 
 
 
@@ -78,4 +75,41 @@
 
 {{-- https://blog.quickadminpanel.com/master-detail-form-in-laravel-jquery-create-order-with-products/ --}}
 
+@endsection
+
+@section('scripts')
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $(document).on('change','.Select_Clausulas',function () {
+            var prod_id=$(this).val();
+
+            var a=$(this).parent();
+            console.log(prod_id);
+            var op="";
+            $.ajax({
+                type:'get',
+                url:'{!!URL::to('/Clausula/Encontrartextoareaclausula')!!}',
+                data:{'id_clausula':cat},
+                dataType:'json',//return data will be json
+                success:function(data){
+                    console.log("contenido");
+                    console.log(data.contenido);
+
+                    // here price is coloumn name in products table data.coln name
+
+                    a.find('.text_area_clausula').val(data.contenido);
+
+                },
+                error:function(){
+                }
+            });
+
+
+        });
+
+    });
+</script>
 @endsection
